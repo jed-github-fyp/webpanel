@@ -1,0 +1,27 @@
+<h1>Class List</h1>
+  <form [formGroup]="addClassForm" autocomplete="off">
+
+    <div class="form-label">
+      <mat-form-field>
+      <input matInput formControlName="classname" placeholder="Class Name" />
+      </mat-form-field>
+
+      <mat-form-field>
+      <input matInput formControlName="term" placeholder="Term" />
+      </mat-form-field>
+
+      <mat-form-field>
+      <input matInput formControlName="yearCreated" placeholder="Year Created" />
+      </mat-form-field>
+
+        <mat-form-field>
+        <input matInput formControlName="ageGroup" placeholder="Age Group" />
+        </mat-form-field>
+
+    <button class="addbutton" mat-raised-button color="accent" (click)="addClass()">Add Class</button>
+  </div>
+  </form>
+<ng2-smart-table [settings]="settingtable2" [source]="classList" (deleteConfirm)="deleteRow($event)" (editConfirm)="editRow($event)"></ng2-smart-table>
+
+
+

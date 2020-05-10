@@ -1,0 +1,45 @@
+<h1>Student List</h1>
+  <form [formGroup]="addStudentForm" autocomplete="off">
+
+    <div class="form-label">
+
+    <mat-form-field>
+    <input matInput formControlName="name" placeholder="Full Name" />
+    </mat-form-field>
+
+    <mat-form-field>
+    <input matInput formControlName="address" placeholder="Address" />
+    </mat-form-field>
+
+    <mat-form-field>
+    <input matInput formControlName="joinYear" placeholder="Year Join" />
+    </mat-form-field>
+
+    <!-- <mat-form-field>
+      <input matInput formControlName="class" matInput placeholder="Class"/>
+    </mat-form-field> -->
+
+    <!-- <mat-form-field>
+      <mat-select [formControl]="class" formControlName="class" placeholder="Class">
+        <mat-option>None</mat-option>
+          <mat-option *ngFor="let c of classes">
+            {{c.value}}
+          </mat-option>
+      </mat-select>
+    </mat-form-field> -->
+
+    <mat-form-field>
+      <mat-select [formControl]="class" formControlName="class" placeholder="Class">
+        <mat-option>None</mat-option>
+        <ng-container *ngFor="let c of classes">
+          <mat-option value="{{c.value}}">{{c.value}}</mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+
+    <button class="addbutton" mat-raised-button color="accent" (click)="addStudent()">Add Student</button>
+  </div>
+  </form>
+<ng2-smart-table [settings]="settings" [source]="studentList" (deleteConfirm)="deleteRow($event)" (editConfirm)="editRow($event)"></ng2-smart-table>
+
+
