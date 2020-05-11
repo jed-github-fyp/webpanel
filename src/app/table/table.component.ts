@@ -40,7 +40,7 @@ export class TableComponent implements OnInit{
     try {
       await this.firestoreDbService.insertData('student', {
         name: this.name.value,
-        fname: this.name.value,
+        fname: this.fname.value,
         address: this.address.value,
         joinYear: this.joinYear.value,
         class: this.class.value
@@ -70,7 +70,7 @@ export class TableComponent implements OnInit{
   createForm(){
     this.addStudentForm = new FormGroup({
       name: this.name,
-      fname: this.name,
+      fname: this.fname,
       address: this.address,
       joinYear: this.joinYear,
       class: this.class
