@@ -15,6 +15,7 @@ export class TableComponent implements OnInit{
 
   addStudentForm: FormGroup;
   name: FormControl;
+  fname: FormControl;
   address: FormControl;
   joinYear: FormControl;
   class: FormControl;
@@ -39,6 +40,7 @@ export class TableComponent implements OnInit{
     try {
       await this.firestoreDbService.insertData('student', {
         name: this.name.value,
+        fname: this.name.value,
         address: this.address.value,
         joinYear: this.joinYear.value,
         class: this.class.value
@@ -53,6 +55,9 @@ export class TableComponent implements OnInit{
     this.name = new FormControl('', [
       Validators.required,
     ]);
+    this.fname = new FormControl('', [
+      Validators.required,
+    ]);
     this.address = new FormControl('', [
       Validators.required,
     ]);
@@ -65,6 +70,7 @@ export class TableComponent implements OnInit{
   createForm(){
     this.addStudentForm = new FormGroup({
       name: this.name,
+      fname: this.name,
       address: this.address,
       joinYear: this.joinYear,
       class: this.class
@@ -94,6 +100,9 @@ export class TableComponent implements OnInit{
         title: 'Full Name',
         filter: 'Search Student Name'
       },
+        fname: {
+        title: 'Family Name'
+      },
       address: {
         title: 'Address'
       },
@@ -118,6 +127,7 @@ export class TableComponent implements OnInit{
   editRow(event){
     console.log("==Event==", event);
     var data = { "name": event.newData.name,
+                  "fname": event.newData.fname,
                   "address": event.newData.address,
                   "joinYear": event.newData.joinYear,
                   "class": event.newData.class
