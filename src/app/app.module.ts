@@ -24,6 +24,7 @@ import {  MatToolbarModule,
           MatSelectModule,
           MatOptionModule } from '@angular/material';
 import { FirestoreDbService } from './providers/firestore-db.service';
+import { Table4Component } from './table4/table4.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { FirestoreDbService } from './providers/firestore-db.service';
     TableComponent,
     NavbarComponent,
     Table2Component,
-    Table3Component
+    Table3Component,
+    Table4Component
   ],
   imports: [
     BrowserModule,
